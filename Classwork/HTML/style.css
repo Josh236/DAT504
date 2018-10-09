@@ -1,0 +1,36 @@
+.box{
+  display: flex;
+  flex-direction: column; 
+  min-height: 100vh;
+  flex: 1;
+  justify-content: center;
+
+}
+
+.first{
+  background-color: green;
+  flex: .15;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+}
+
+.second{
+  background-color: white;
+  flex: .7;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+
+}
+
+.third{
+  background-color: red;
+  flex: .15;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+}
