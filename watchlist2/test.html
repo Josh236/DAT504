@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <script src="test.js"></script>
+  <body>
+    <h1>This is a heading</h1>
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-12">
+          <form action='/search' method="get">
+              <input type="text" id="userSearch" class="form-control" placeholder="Search">
+              <button id="link" type="submit" onClick='userSearch()'>Search</button>
+          </form>
+          <hr>
+          <div class="cleanedData"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+    let url = 'http://localhost:3001/search';
+
+    function userSearch(){
+      document.getElementById('userSearch').value;
+    }
+    </script>
+  </body>
+</html>
