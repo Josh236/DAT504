@@ -23,53 +23,61 @@
 <main>
   <div class="flex-container-col search">
     <div class="flex-container mainLogo-container">
-      <img class="mainLogo" src="Resources/Logos/LogoWhite.svg" alt="Watchlist Logo"/>
+      <img class="mainLogo" src="Resources/Logos/LogoWhite.svg" alt="Watchlist Logo">
     </div>
     <div class="input-group">
       <form class='search' method='post' action='/search'>
         <input id="userSearch" type="text" name='name' class="form-control" placeholder="Enter any movie or tv show..." aria-label="Search" aria-describedby="basic-addon2">
           <div class ="input-group-append">
-            <button id="link" class="btn pink" type="submit" onClick="searchBUTTON()">Search</button>
+            <button id="searchBtn" class="btn pink" type="submit">Search</button>
           </div>
       </form>
       </div>
     </div>
    <div id="Movies">
+     <p id="movieDetail" style="position:absolute; left:0;">Search Results</p>
   </div>
 </main>
 <script>
-document.querySelector('#link').addEventListener('click', function (event) {
+document.getElementById('searchBtn').addEventListener('click', function (event) {
+  var movieDetail = document.getElementById('movieDetail');
+
   event.preventDefault()
   console.log("clicked it")
-  const name = document.getElementById('userSearch').value;
+
+  const searchName = document.getElementById('userSearch').value;
+  console.log(userSearch.value);
+
   fetch('/search', {
     method: 'POST',
     body: JSON.stringify({
-      name: name
+      name: searchName
     }),
     headers: {
       'Content-Type': 'application/json'
     }
-  }).then(response => response.json()).then(console.log)
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    var movieInfoArray = data;
+    resultsL = movieInfoArray.length;
+    console.log(resultsL);
+
+    resultsText = "<ul>";
+    for (i = 0; i < resultsL; i++) {
+      resultsText += "<li>" + movieInfoArray[i].title + "</li>";
+
+    }
+    resultsText += "</ul>";
+
+    movieDetail.innerHTML= resultsText;
+    //movieDetail.innerHTML= movieInfoArray[0].cinema_release_date
+  })
 
 
 })
 </script>
-<script>
-
-function searchBUTTON() {
-  var movList = <%= cleanedData %>;
-  var newDiv = document.createElement("div");
-  var newContent = document.createTextNode(movList);
-  newDiv.appendChild(newContent);
-  var currentDiv = document.getElementById("div1");
-  document.body.insertBefore(newDiv, currentDiv)
-}
-// var movList = <%= cleanedData %>;
-document.getElementById('Movies').textContent = cleanedData;
-</script>
-
-
 
 <footer>
   <div class="flex-container-row flex-centre flex-footer">
