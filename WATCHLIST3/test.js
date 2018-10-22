@@ -53,7 +53,7 @@ app.post('/search', async function (req, res) {
     return {
       title: item.title,
       cinema_release_date: item.cinema_release_date,
-      offer1: item.offers,
+      offers: item.offers,
       runtime: item.runtime + " mintues"
     }
   })

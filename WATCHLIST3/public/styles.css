@@ -125,6 +125,19 @@ input[type="color"]:focus,
   padding: 5%;
 }
 
+.table {
+  display: table;
+  margin: 0 auto;
+}
+
+ul#horizontal-list{
+  min-width: 400px;
+  list-style: circle;
+}
+  ul#horizontal-list li {
+    display: inline;
+  }
+
 form.search{
   display: flex;
   justify-content: center;

@@ -34,8 +34,12 @@
       </form>
       </div>
     </div>
-   <div id="Movies">
-     <p id="movieDetail" style="position:absolute; left:0;">Search Results</p>
+  <div class ="table">
+    <ul id="horizontal-list">
+      <div id="Movies">
+        <p id="movieDetail" style="position:absolute; left:0; down: 20;">Search Results</p>
+      </div>
+    </ul>
   </div>
 </main>
 <script>
@@ -66,13 +70,15 @@ document.getElementById('searchBtn').addEventListener('click', function (event) 
 
     resultsText = "<ul>";
     for (i = 0; i < resultsL; i++) {
-      resultsText += "<li>" + movieInfoArray[i].title + "</li>";
+      resultsText += "<li> " + movieInfoArray[i].title + ":  </li>";
+      resultsText += "<li> " + movieInfoArray[i].runtime + " &ensp;&ensp;&ensp; </li>";
+      resultsText += "<li>Urls: " + movieInfoArray[i].offers.urls + " &ensp;&ensp;&ensp; </li>";
+
 
     }
     resultsText += "</ul>";
 
     movieDetail.innerHTML= resultsText;
-    //movieDetail.innerHTML= movieInfoArray[0].cinema_release_date
   })
 
 
