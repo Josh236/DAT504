@@ -127,7 +127,7 @@ input[type="color"]:focus,
 
 .table {
   display: table;
-  margin: 0 auto;
+  margin: 5;
 }
 
 ul#horizontal-list{

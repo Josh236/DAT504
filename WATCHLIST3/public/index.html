@@ -72,7 +72,8 @@ document.getElementById('searchBtn').addEventListener('click', function (event) 
     for (i = 0; i < resultsL; i++) {
       resultsText += "<li> " + movieInfoArray[i].title + ":  </li>";
       resultsText += "<li> " + movieInfoArray[i].runtime + " &ensp;&ensp;&ensp; </li>";
-      resultsText += "<li>Urls: " + movieInfoArray[i].offers.urls + " &ensp;&ensp;&ensp; </li>";
+      resultsText += "<li>Urls: " + movieInfoArray[i]["offers"][0]["urls"]["standard_web"] + " &ensp;&ensp;&ensp; </li>";
+      //resultsText = movieInfoArray[i] && movieInfoArray[i] ? movieInfoArray[i].offers[i]: null;
 
 
     }
